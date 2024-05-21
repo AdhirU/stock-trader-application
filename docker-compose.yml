@@ -1,0 +1,68 @@
+version: "3.9"
+services:
+  catalog:
+    container_name: catalog
+    build:
+      context: .
+      dockerfile: catalog.Dockerfile
+    environment:
+      - CACHING=ON
+    ports:
+      - "50015:50015"
+    volumes:
+      - ./src/catalog:/app
+  order1:
+    container_name: order1
+    build:
+      context: .
+      dockerfile: order.Dockerfile
+    depends_on:
+      - catalog
+    environment:
+      - ID=1
+      - PORT=50017
+    ports:
+      - "50017:50017"
+    volumes:
+      - ./src/order:/app
+  order2:
+    container_name: order2
+    build:
+      context: .
+      dockerfile: order.Dockerfile
+    depends_on:
+      - catalog
+    environment:
+      - ID=2
+      - PORT=50018
+    ports:
+      - "50018:50018"
+    volumes:
+      - ./src/order:/app
+  order3:
+    container_name: order3
+    build:
+      context: .
+      dockerfile: order.Dockerfile
+    depends_on:
+      - catalog
+    environment:
+      - ID=3
+      - PORT=50019
+    ports:
+      - "50019:50019"
+    volumes:
+      - ./src/order:/app
+  frontend:
+    container_name: frontend
+    build:
+      context: .
+      dockerfile: frontend.Dockerfile
+    depends_on:
+      - order1
+      - order2
+      - order3
+    environment:
+      - CACHING=ON
+    ports:
+      - "8080:8080"

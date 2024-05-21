@@ -1,0 +1,52 @@
+{
+    "GameStart": {
+        "price": 4.1,
+        "quantity": 140,
+        "volume": 3228
+    },
+    "FishCo": {
+        "price": 24.4,
+        "quantity": 210,
+        "volume": 3154
+    },
+    "BoarCo": {
+        "price": 5.95,
+        "quantity": 1616,
+        "volume": 4546
+    },
+    "MenhirCo": {
+        "price": 17.15,
+        "quantity": 97,
+        "volume": 3427
+    },
+    "Windmillite": {
+        "price": 106.5,
+        "quantity": 903,
+        "volume": 2833
+    },
+    "SlimeCo": {
+        "price": 15.33,
+        "quantity": 143,
+        "volume": 3829
+    },
+    "TerraTop": {
+        "price": 79.99,
+        "quantity": 257,
+        "volume": 2799
+    },
+    "DuckCo": {
+        "price": 15.01,
+        "quantity": 13,
+        "volume": 3689
+    },
+    "LaserCo": {
+        "price": 17.34,
+        "quantity": 0,
+        "volume": 334
+    },
+    "TimeStop": {
+        "price": 123.44,
+        "quantity": 828,
+        "volume": 3016
+    }
+}

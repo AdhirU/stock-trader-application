@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package catalog;
+
+// The stock market service definition.
+service Catalog {
+  // Looks up a stock's value
+  rpc LookUp (StockName) returns (StockDetails) {}
+
+  // Update the stock by performing trade
+  rpc Update (TradeDetails) returns (SuccessMessage) {}
+}
+
+// The request message containing the stock's name
+message StockName {
+  string stockName = 1;
+}
+
+// The response message containing details of the stock
+message StockDetails {
+  float price = 1;
+  int32 quantity = 2;
+}
+
+// The request message containing details of the trade
+message TradeDetails {
+  string stockName = 1;
+  int32 N = 2;
+  string type = 3;
+}
+
+// The response message detailing whether the request was successful
+message SuccessMessage {
+  int32 message = 1;
+}

@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package order;
+
+// The stock market service definition.
+service Order {
+  // Makes a trade
+  rpc Trade (TradeDetails) returns (ResponseMessage) {}
+  rpc GetOrder (OrderNumber) returns (OrderDetails) {}
+  rpc Ping (LiveCheck) returns (Success) {}
+  rpc SetLeader (LeaderDetails) returns (Success) {}
+  rpc PropagateOrder (OrderDetails) returns (Success) {}
+  rpc FetchNewOrders (OrderNumber) returns (NewOrders) {}
+}
+
+// The request message containing details of the trade
+message TradeDetails {
+  string stockName = 1;
+  int32 N = 2;
+  string type = 3;
+}
+
+// The response message detailing whether the request was successful
+message ResponseMessage {
+  int32 code = 1;
+  int32 transactionNumber = 2;
+  string message =3;
+}
+
+// The request message for details of a particular order number
+message OrderNumber {
+  int32 orderNumber = 1;
+}
+
+// The response order details
+message OrderDetails {
+  int32 orderNumber = 1;
+  string stockName = 2;
+  string type = 3;
+  int32 quantity = 4;
+}
+
+message LiveCheck {
+  int32 code = 1;
+}
+
+message Success {
+  int32 code = 1;
+}
+
+message LeaderDetails {
+  int32 id = 1;
+  string hostname = 2;
+  string port = 3;
+}
+
+message NewOrders {
+  int32 latestOrder = 1;
+  string missingOrders = 2;
+}

@@ -1,0 +1,14 @@
+{
+    "1": {
+        "hostname": "order1",
+        "port": "50017"
+    },
+    "2": {
+        "hostname": "order2",
+        "port": "50018"
+    },
+    "3": {
+        "hostname": "order3",
+        "port": "50019"
+    }
+}
